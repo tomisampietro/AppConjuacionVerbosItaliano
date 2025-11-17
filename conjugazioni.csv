@@ -1,0 +1,85 @@
+Tiempo,Nombre,Modo,Pronombre,Genere,essere,avere,mangiare,credere,dormire
+Futuro,Anteriore,Indicativo,Io,M,sarò stato,avrò avuto,avrò mangiato,avrò creduto,avrò dormito
+Futuro,Anteriore,Indicativo,Tu,M,sarai stato,avrai avuto,avrai mangiato,avrai creduto,avrai dormito
+Futuro,Anteriore,Indicativo,Lui,M,sarà stato,avrà avuto,avrà mangiato,avrà creduto,avrà dormito
+Futuro,Anteriore,Indicativo,Noi,M,saremo stati,avremo avuto,avremo mangiato,avremo creduto,avremo dormito
+Futuro,Anteriore,Indicativo,Voi,M,sarete stati,avrete avuto,avrete mangiato,avrete creduto,avrete dormito
+Futuro,Anteriore,Indicativo,Loro,M,saranno stati,avranno avuto,avranno mangiato,avranno creduto,avranno dormito
+Futuro,Semplice,Indicativo,Io,M,sarò,avrò,mangerò,crederò,dormirò
+Futuro,Semplice,Indicativo,Tu,M,sarai,avrai,mangerai,crederai,dormirai
+Futuro,Semplice,Indicativo,Lui,M,sarà,avrà,mangerà,crederà,dormirà
+Futuro,Semplice,Indicativo,Noi,M,saremo,avremo,mangeremo,crederemo,dormiremo
+Futuro,Semplice,Indicativo,Voi,M,sarete,avrete,mangerete,crederete,dormirete
+Futuro,Semplice,Indicativo,Loro,M,saranno,avranno,mangeranno,crederanno,dormiranno
+Passato,Imperfetto,Indicativo,Io,M,ero,avevo,mangiavo,credevo,dormivo
+Passato,Imperfetto,Indicativo,Tu,M,eri,avevi,mangiavi,credevi,dormivi
+Passato,Imperfetto,Indicativo,Lui,M,era,aveva,mangiava,credeva,dormiva
+Passato,Imperfetto,Indicativo,Noi,M,eravamo,avevamo,mangiavamo,credevamo,dormivamo
+Passato,Imperfetto,Indicativo,Voi,M,eravate,avevate,mangiavate,credevate,dormivate
+Passato,Imperfetto,Indicativo,Loro,M,erano,avevano,mangiavano,credevano,dormivano
+Passato,Prossimo,Indicativo,Io,M,sono stato,ho avuto,ho mangiato,ho creduto,ho dormito
+Passato,Prossimo,Indicativo,Tu,M,sei stato,hai avuto,hai mangiato,hai creduto,hai dormito
+Passato,Prossimo,Indicativo,Lui,M,è stato,ha avuto,ha mangiato,ha creduto,ha dormito
+Passato,Prossimo,Indicativo,Noi,M,siamo stati,abbiamo avuto,abbiamo mangiato,abbiamo creduto,abbiamo dormito
+Passato,Prossimo,Indicativo,Voi,M,siete stati,avete avuto,avete mangiato,avete creduto,avete dormito
+Passato,Prossimo,Indicativo,Loro,M,sono stati,hanno avuto,hanno mangiato,hanno creduto,hanno dormito
+Passato,Trapassato prossimo,Indicativo,Io,M,ero stato,avevo avuto,avevo mangiato,avevo creduto,avevo dormito
+Passato,Trapassato prossimo,Indicativo,Tu,M,eri stato,avevi avuto,avevi mangiato,avevi creduto,avevi dormito
+Passato,Trapassato prossimo,Indicativo,Lui,M,era stato,aveva avuto,aveva mangiato,aveva creduto,aveva dormito
+Passato,Trapassato prossimo,Indicativo,Noi,M,eravamo stati,avevamo avuto,avevamo mangiato,avevamo creduto,avevamo dormito
+Passato,Trapassato prossimo,Indicativo,Voi,M,eravate stati,avevate avuto,avevate mangiato,avevate creduto,avevate dormito
+Passato,Trapassato prossimo,Indicativo,Loro,M,erano stati,avevano avuto,avevano mangiato,avevano creduto,avevano dormito
+Passato,Congiuntivo imperfetto,Congiuntivo,Io,M,fossi,avessi,mangiassi,credessi,dormissi
+Passato,Congiuntivo imperfetto,Congiuntivo,Tu,M,fossi,avessi,mangiassi,credessi,dormissi
+Passato,Congiuntivo imperfetto,Congiuntivo,Lui,M,fosse,avesse,mangiasse,credesse,dormisse
+Passato,Congiuntivo imperfetto,Congiuntivo,Noi,M,fossimo,avessimo,mangiassimo,credessimo,dormissimo
+Passato,Congiuntivo imperfetto,Congiuntivo,Voi,M,foste,aveste,mangiaste,credeste,dormiste
+Passato,Congiuntivo imperfetto,Congiuntivo,Loro,M,fossero,avessero,mangiassero,credessero,dormissero
+Passato,Congiuntivo passato,Congiuntivo,Io,M,sia stato,abbia avuto,abbia mangiato,abbia creduto,abbia dormito
+Passato,Congiuntivo passato,Congiuntivo,Tu,M,sia stato,abbia avuto,abbia mangiato,abbia creduto,abbia dormito
+Passato,Congiuntivo passato,Congiuntivo,Lui,M,sia stato,abbia avuto,abbia mangiato,abbia creduto,abbia dormito
+Passato,Congiuntivo passato,Congiuntivo,Noi,M,siamo stati,abbiamo avuto,abbiamo mangiato,abbiamo creduto,abbiamo dormito
+Passato,Congiuntivo passato,Congiuntivo,Voi,M,siate stati,abbiate avuto,abbiate mangiato,abbiate creduto,abbiate dormito
+Passato,Congiuntivo passato,Congiuntivo,Loro,M,siano stati,abbiano avuto,abbiano mangiato,abbiano creduto,abbiano dormito
+Passato,Congiuntivo trapassato,Congiuntivo,Io,M,fossi stato,avessi avuto,avessi mangiato,avessi creduto,avessi dormito
+Passato,Congiuntivo trapassato,Congiuntivo,Tu,M,fossi stato,avessi avuto,avessi mangiato,avessi creduto,avessi dormito
+Passato,Congiuntivo trapassato,Congiuntivo,Lui,M,fosse stato,avesse avuto,avesse mangiato,avesse creduto,avesse dormito
+Passato,Congiuntivo trapassato,Congiuntivo,Noi,M,fossimo stati,avessimo avuto,avessimo mangiato,avessimo creduto,avessimo dormito
+Passato,Congiuntivo trapassato,Congiuntivo,Voi,M,foste stati,aveste avuto,aveste mangiato,aveste creduto,aveste dormito
+Passato,Congiuntivo trapassato,Congiuntivo,Loro,M,fossero stati,avessero avuto,avessero mangiato,avessero creduto,avessero dormito
+Passato,Remoto,Remoto,Io,M,fui,ebbi,mangiai,credetti,dormii
+Passato,Remoto,Remoto,Tu,M,fosti,avesti,mangiasti,credesti,dormisti
+Passato,Remoto,Remoto,Lui,M,fu,ebbe,mangiò,credette,dormì
+Passato,Remoto,Remoto,Noi,M,fummo,avemmo,mangiammo,credemmo,dormimmo
+Passato,Remoto,Remoto,Voi,M,foste,aveste,mangiaste,credeste,dormiste
+Passato,Remoto,Remoto,Loro,M,furono,ebbero,mangiarono,credettero,dormirono
+Passato,Trapassato Remoto,Remoto,Io,M,fui stato,ebbi avuto,ebbi mangiato,ebbi creduto,ebbi dormito
+Passato,Trapassato Remoto,Remoto,Tu,M,fosti stato,avesti avuto,avesti mangiato,avesti creduto,avesti dormito
+Passato,Trapassato Remoto,Remoto,Lui,M,fu stato,ebbe avuto,ebbe mangiato,ebbe creduto,ebbe dormito
+Passato,Trapassato Remoto,Remoto,Noi,M,fummo stati,avemmo avuto,avemmo mangiato,avemmo creduto,avemmo dormito
+Passato,Trapassato Remoto,Remoto,Voi,M,foste stati,aveste avuto,aveste mangiato,aveste creduto,aveste dormito
+Passato,Trapassato Remoto,Remoto,Loro,M,furono stati,ebbero avuto,ebbero mangiato,ebbero creduto,ebbero dormito
+Passato,Condizionale passato,Condizionale,Io,M,sarei stato,avrei avuto,avrei mangiato,avrei creduto,avrei dormito
+Passato,Condizionale passato,Condizionale,Tu,M,saresti stato,avresti avuto,avresti mangiato,avresti creduto,avresti dormito
+Passato,Condizionale passato,Condizionale,Lui,M,sarebbe stato,avrebbe avuto,avrebbe mangiato,avrebbe creduto,avrebbe dormito
+Passato,Condizionale passato,Condizionale,Noi,M,saremmo stati,avremmo avuto,avremmo mangiato,avremmo creduto,avremmo dormito
+Passato,Condizionale passato,Condizionale,Voi,M,sareste stati,avreste avuto,avreste mangiato,avreste creduto,avreste dormito
+Passato,Condizionale passato,Condizionale,Loro,M,sarebbero stati,avrebbero avuto,avrebbero mangiato,avrebbero creduto,avrebbero dormito
+Presente,Congiuntivo Presente,Congiuntivo,Io,M,sia,abbia,mangi,creda,dorma
+Presente,Congiuntivo Presente,Congiuntivo,Tu,M,sia,abbia,mangi,creda,dorma
+Presente,Congiuntivo Presente,Congiuntivo,Lui,M,sia,abbia,mangi,creda,dorma
+Presente,Congiuntivo Presente,Congiuntivo,Noi,M,siamo,abbiamo,mangiamo,crediamo,dormiamo
+Presente,Congiuntivo Presente,Congiuntivo,Voi,M,siate,abbiate,mangiate,crediate,dormiate
+Presente,Congiuntivo Presente,Congiuntivo,Loro,M,siano,abbiano,mangino,credano,dormano
+Presente,Presente,Indicativo,Io,M,sono,ho,mangio,credo,dormo
+Presente,Presente,Indicativo,Tu,M,sei,hai,mangi,credi,dormi
+Presente,Presente,Indicativo,Lui,M,è,ha,mangia,crede,dorme
+Presente,Presente,Indicativo,Noi,M,siamo,abbiamo,mangiamo,crediamo,dormiamo
+Presente,Presente,Indicativo,Voi,M,siete,avete,mangiate,credete,dormite
+Presente,Presente,Indicativo,Loro,M,sono,hanno,mangiano,credono,dormono
+Presente,Condizionale presente,Condizionale,Io,M,sarei,avrei,mangerei,crederei,dormirei
+Presente,Condizionale presente,Condizionale,Tu,M,saresti,avresti,mangeresti,crederesti,dormiresti
+Presente,Condizionale presente,Condizionale,Lui,M,sarebbe,avrebbe,mangerebbe,crederebbe,dormirebbe
+Presente,Condizionale presente,Condizionale,Noi,M,saremmo,avremmo,mangeremmo,crederemmo,dormiremmo
+Presente,Condizionale presente,Condizionale,Voi,M,sareste,avreste,mangereste,credereste,dormireste
+Presente,Condizionale presente,Condizionale,Loro,M,sarebbero,avrebbero,mangerebbero,crederebbero,dormirebbero
