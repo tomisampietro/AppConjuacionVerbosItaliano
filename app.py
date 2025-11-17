@@ -198,16 +198,6 @@ if page == "Allenamento":
         <div class="hero">
             <div class="hero-left">
                 <div class="hero-title">CONIUGAZIONI ITALIANO</div>
-                <div class="hero-sub">
-                    Allenati come un pilota di Formula 1: velocità, precisione, ripetizione.
-                </div>
-                <div class="color-palette">
-                    <div class="color-chip it-green"></div>
-                    <div class="color-chip it-red"></div>
-                    <div class="color-chip accent"></div>
-                    <div class="color-chip sun"></div>
-                    <div class="color-chip mint"></div>
-                </div>
             </div>
             <div class="hero-right">
                 <div class="flag-wrap"><div class="italian-flag"></div></div>
