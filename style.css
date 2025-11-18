@@ -88,18 +88,26 @@ html, body, .stApp{
 .color-chip.mint{ background:#06d6a0; }
 
 /* Italian Flag */
-.flag-wrap{ display:flex; align-items:center; justify-content:center; padding:8px; }
-.italian-flag{
-    width:120px; height:40px; border-radius:12px;
-    overflow:hidden; position:relative;
-    border:1px solid rgba(255,255,255,0.1);
-    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+.flag-wrap{ display:none; }
+
+/* Barra fija superior con los colores de la bandera italiana
+   - franja delgada, ancho completo, no interfiere con clicks (pointer-events:none)
+   - se añade como elemento global con alto z-index
+*/
+.italian-flag-global{
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    height:8px; /* franja fina */
+    z-index:9999;
+    background: linear-gradient(90deg, #009246 0 33.333%, #ffffff 33.333% 66.666%, #ce2b37 66.666% 100%);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    pointer-events: none;
 }
-.italian-flag::before{
-    content:'';
-    position:absolute; inset:0;
-    background:linear-gradient(90deg,#009246 0 33.333%,#ffffff 33.333% 66.666%,#ce2b37 66.666% 100%);
-    animation:flagFloat 3s ease-in-out infinite;
+
+@media (max-width: 640px){
+    .italian-flag-global{ height:6px; }
 }
 @keyframes flagFloat{
     0%{ transform:translateY(0) rotate(0deg); }
@@ -288,4 +296,44 @@ html, body, .stApp{
 /* Sidebar tweaks */
 section[data-testid="stSidebar"]{
     background:linear-gradient(180deg,#050608 0%, #080b10 100%);
+}
+
+/* Session tables (aciertos / errores) */
+.session-table{
+    width:100% !important;
+    border-collapse:collapse !important;
+    margin-top:8px;
+    font-size:0.95rem !important;
+    color:var(--text) !important;
+    table-layout: fixed !important;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.session-table th{
+    text-align:left !important;
+    padding:8px 10px !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)) !important;
+    color:var(--muted-2) !important;
+    font-weight:700 !important;
+    border-bottom:1px solid rgba(255,255,255,0.04) !important;
+    text-transform:none !important;
+    font-size:0.85rem !important;
+}
+.session-table td{
+    padding:8px 10px !important;
+    border-bottom:1px solid rgba(255,255,255,0.03) !important;
+    vertical-align:middle !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+}
+.session-table.session-errors td{ color: #ffd7d7 !important; }
+.session-table tr:hover td{ background: rgba(255,255,255,0.01) !important; }
+
+/* Column width hints: Fecha wider, Verbo/Modo narrower */
+.session-table thead th:first-child, .session-table tbody td:first-child{ width:180px !important; }
+.session-table thead th:nth-child(2), .session-table tbody td:nth-child(2){ width:90px !important; }
+
+@media (max-width: 900px){
+    .session-table{ font-size:0.85rem !important; }
+    .session-table thead th:first-child, .session-table tbody td:first-child{ width:140px !important; }
 }

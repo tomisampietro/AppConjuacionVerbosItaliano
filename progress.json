@@ -1,0 +1,223 @@
+{
+  "error_log": [
+    {
+      "timestamp": "2025-11-18T00:05:54.290042Z",
+      "tiempo": "Presente",
+      "nombre": "Condizionale presente",
+      "modo": "Condizionale",
+      "pronombre": "Voi",
+      "verb": "essere",
+      "provided": "sarei",
+      "correct": "sareste"
+    },
+    {
+      "timestamp": "2025-11-18T00:49:18.144099Z",
+      "tiempo": "Presente",
+      "nombre": "Congiuntivo Presente",
+      "modo": "Congiuntivo",
+      "pronombre": "Voi",
+      "verb": "essere",
+      "provided": "saresti",
+      "correct": "siate"
+    },
+    {
+      "timestamp": "2025-11-18T00:51:05.207881Z",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "modo": "Indicativo",
+      "pronombre": "Voi",
+      "verb": "mangiare",
+      "provided": "avesti",
+      "correct": "avete mangiato"
+    },
+    {
+      "timestamp": "2025-11-18T00:51:42.711222Z",
+      "tiempo": "Passato",
+      "nombre": "Congiuntivo trapassato",
+      "modo": "Congiuntivo",
+      "pronombre": "Io",
+      "verb": "credere",
+      "provided": "avesti dormito",
+      "correct": "avessi creduto"
+    },
+    {
+      "timestamp": "2025-11-18T00:52:33.393612Z",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "modo": "Indicativo",
+      "pronombre": "Lui",
+      "verb": "credere",
+      "provided": "credeba",
+      "correct": "credeva"
+    },
+    {
+      "timestamp": "2025-11-18T01:05:23.739747Z",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "modo": "Indicativo",
+      "pronombre": "Noi",
+      "verb": "credere",
+      "provided": "crediamo",
+      "correct": "abbiamo creduto"
+    },
+    {
+      "timestamp": "2025-11-18T01:06:01.207962Z",
+      "tiempo": "Passato",
+      "nombre": "Congiuntivo passato",
+      "modo": "Congiuntivo",
+      "pronombre": "Io",
+      "verb": "essere",
+      "provided": "dormiste",
+      "correct": "sia stato"
+    },
+    {
+      "verb": "dormire",
+      "modo": "Congiuntivo",
+      "tiempo": "Passato",
+      "nombre": "Congiuntivo passato",
+      "pronombre": "Lui",
+      "provided": "dormirei",
+      "correct": "abbia dormito"
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Tu",
+      "provided": "dormisti",
+      "correct": "avesti dormito"
+    },
+    {
+      "verb": "credere",
+      "modo": "Congiuntivo",
+      "tiempo": "Passato",
+      "nombre": "Congiuntivo imperfetto",
+      "pronombre": "Voi",
+      "provided": "crederei",
+      "correct": "credeste"
+    }
+  ],
+  "repeat_queue": [
+    {
+      "tiempo": "Presente",
+      "nombre": "Condizionale presente",
+      "modo": "Condizionale",
+      "pronombre": "Voi",
+      "verb": "essere",
+      "correct": "sareste",
+      "genere": "M",
+      "scheduled_at": 4,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "tiempo": "Presente",
+      "nombre": "Congiuntivo Presente",
+      "modo": "Congiuntivo",
+      "pronombre": "Voi",
+      "verb": "essere",
+      "correct": "siate",
+      "genere": "M",
+      "scheduled_at": 4,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "modo": "Indicativo",
+      "pronombre": "Voi",
+      "verb": "mangiare",
+      "correct": "avete mangiato",
+      "genere": "M",
+      "scheduled_at": 5,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "tiempo": "Passato",
+      "nombre": "Congiuntivo trapassato",
+      "modo": "Congiuntivo",
+      "pronombre": "Io",
+      "verb": "credere",
+      "correct": "avessi creduto",
+      "genere": "M",
+      "scheduled_at": 6,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "modo": "Indicativo",
+      "pronombre": "Lui",
+      "verb": "credere",
+      "correct": "credeva",
+      "genere": "M",
+      "scheduled_at": 4,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "modo": "Indicativo",
+      "pronombre": "Noi",
+      "verb": "credere",
+      "correct": "abbiamo creduto",
+      "genere": "M",
+      "scheduled_at": 4,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "tiempo": "Passato",
+      "nombre": "Congiuntivo passato",
+      "modo": "Congiuntivo",
+      "pronombre": "Io",
+      "verb": "essere",
+      "correct": "sia stato",
+      "genere": "M",
+      "scheduled_at": 5,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "tiempo": "Passato",
+      "nombre": "Congiuntivo passato",
+      "modo": "Congiuntivo",
+      "pronombre": "Lui",
+      "verb": "dormire",
+      "correct": "abbia dormito",
+      "genere": "M",
+      "scheduled_at": 4,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "modo": "Remoto",
+      "pronombre": "Tu",
+      "verb": "dormire",
+      "correct": "avesti dormito",
+      "genere": "M",
+      "scheduled_at": 5,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "tiempo": "Passato",
+      "nombre": "Congiuntivo imperfetto",
+      "modo": "Congiuntivo",
+      "pronombre": "Voi",
+      "verb": "credere",
+      "correct": "credeste",
+      "genere": "M",
+      "scheduled_at": 6,
+      "interval": 3,
+      "attempts": 1
+    }
+  ]
+}

@@ -3,6 +3,9 @@ import unicodedata
 import pandas as pd
 import streamlit as st
 from streamlit.components.v1 import html
+import json
+import os
+from datetime import datetime
 
 # ============================================================
 #                 CONFIGURACIÓN DE PÁGINA
@@ -20,6 +23,8 @@ st.set_page_config(
 try:
     with open("style.css", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+        # Insert the global italian flag stripe (thin full-width bar)
+        st.markdown("<div class='italian-flag-global'></div>", unsafe_allow_html=True)
 except Exception as e:
     st.error(f"⚠️ Error cargando style.css: {e}")
 
@@ -91,20 +96,71 @@ def new_question() -> None:
     if df_filtered.empty:
         st.session_state["question"] = None
         return
+    # Priorizar preguntas programadas (repeticiones) que estén 'vencidas'
+    # Una repetición tiene 'scheduled_at' en número de preguntas transcurridas
+    now_q = st.session_state.get("questions", 0)
+    repeat_item = None
+    if "repeat_queue" in st.session_state and st.session_state["repeat_queue"]:
+        # buscar la primera repetición cuyo scheduled_at <= now_q
+        for i, it in enumerate(st.session_state["repeat_queue"]):
+            if it.get("scheduled_at", 0) <= now_q:
+                repeat_item = st.session_state["repeat_queue"].pop(i)
+                break
 
-    row = df_filtered.sample(1).iloc[0]
-    verb = random.choice(st.session_state["selected_verbs"])
+    if repeat_item:
+        # usar la repetición programada como pregunta
+        st.session_state["question"] = {
+            "tiempo": repeat_item["tiempo"],
+            "nombre": repeat_item["nombre"],
+            "modo": repeat_item["modo"],
+            "pronombre": repeat_item["pronombre"],
+            "verb": repeat_item.get("verb", random.choice(st.session_state["selected_verbs"])),
+            "correct": repeat_item.get("correct"),
+            "genere": repeat_item.get("genere", "M"),
+            "is_repeat": True,
+        }
+        st.session_state["feedback"] = ""
+        st.session_state["validated"] = False
+        return
+
+    # Pregunta aleatoria normal (evitar repeticiones inmediatas)
+    max_attempts = 60
+    attempt = 0
+    chosen = None
+    while attempt < max_attempts:
+        r = df_filtered.sample(1).iloc[0]
+        verb = random.choice(st.session_state["selected_verbs"]) if st.session_state.get("selected_verbs") else random.choice(list(VERB_COLUMNS.keys()))
+        key = (r.get("Tiempo"), r.get("Nombre"), r.get("Modo"), r.get("Pronombre"), verb)
+        if key not in st.session_state.get("last_questions", []):
+            chosen = (r, verb)
+            break
+        attempt += 1
+
+    if chosen is None:
+        # fallback: accept last sampled
+        r = df_filtered.sample(1).iloc[0]
+        verb = random.choice(st.session_state["selected_verbs"]) if st.session_state.get("selected_verbs") else random.choice(list(VERB_COLUMNS.keys()))
+    else:
+        r, verb = chosen
+
     col = VERB_COLUMNS[verb]
 
     st.session_state["question"] = {
-        "tiempo": row["Tiempo"],
-        "nombre": row["Nombre"],
-        "modo": row["Modo"],
-        "pronombre": row["Pronombre"],
+        "tiempo": r["Tiempo"],
+        "nombre": r["Nombre"],
+        "modo": r["Modo"],
+        "pronombre": r["Pronombre"],
         "verb": verb,
-        "correct": row[col],
-        "genere": row["Genere"],
+        "correct": r[col],
+        "genere": r["Genere"],
     }
+
+    # registrar en historial para evitar repeticiones próximas
+    last = st.session_state.setdefault("last_questions", [])
+    last.append((st.session_state["question"]["tiempo"], st.session_state["question"]["nombre"], st.session_state["question"]["modo"], st.session_state["question"]["pronombre"], st.session_state["question"]["verb"]))
+    # mantener sólo últimas N
+    if len(last) > 50:
+        st.session_state["last_questions"] = last[-50:]
     st.session_state["feedback"] = ""
     st.session_state["validated"] = False
 
@@ -117,7 +173,8 @@ if "score" not in st.session_state:
     st.session_state["questions"] = 0
 
 if "selected_verbs" not in st.session_state:
-    st.session_state["selected_verbs"] = list(VERB_COLUMNS.keys())
+    # Randomize initial verb order so sessions start differently
+    st.session_state["selected_verbs"] = random.sample(list(VERB_COLUMNS.keys()), k=len(VERB_COLUMNS))
 
 if "selected_modes" not in st.session_state:
     st.session_state["selected_modes"] = sorted(df["Modo"].unique())
@@ -135,6 +192,47 @@ if "feedback" not in st.session_state:
     st.session_state["feedback"] = ""
 if "validated" not in st.session_state:
     st.session_state["validated"] = False
+
+# keep a short history of recent question keys to avoid immediate repeats
+if "last_questions" not in st.session_state:
+    st.session_state["last_questions"] = []
+# Sesión: tablas temporales de aciertos / errores
+if "session_corrects" not in st.session_state:
+    st.session_state["session_corrects"] = []
+if "session_errors" not in st.session_state:
+    st.session_state["session_errors"] = []
+
+# ============================================================
+#            REPETICIONES Y REGISTRO DE ERRORES
+# ============================================================
+PROGRESS_PATH = "progress.json"
+
+def load_progress():
+    if os.path.exists(PROGRESS_PATH):
+        try:
+            with open(PROGRESS_PATH, "r", encoding="utf-8") as fh:
+                data = json.load(fh)
+                st.session_state.setdefault("error_log", data.get("error_log", []))
+                st.session_state.setdefault("repeat_queue", data.get("repeat_queue", []))
+        except Exception:
+            st.session_state.setdefault("error_log", [])
+            st.session_state.setdefault("repeat_queue", [])
+    else:
+        st.session_state.setdefault("error_log", [])
+        st.session_state.setdefault("repeat_queue", [])
+
+def save_progress():
+    payload = {
+        "error_log": st.session_state.get("error_log", []),
+        "repeat_queue": st.session_state.get("repeat_queue", []),
+    }
+    try:
+        with open(PROGRESS_PATH, "w", encoding="utf-8") as fh:
+            json.dump(payload, fh, ensure_ascii=False, indent=2)
+    except Exception:
+        pass
+
+load_progress()
 
 # ============================================================
 #                SELECTOR DE SECCIÓN (SIDEBAR)
@@ -185,6 +283,7 @@ if page == "Allenamento":
 
     if st.sidebar.button("🔄 Nuova domanda"):
         new_question()
+        st.rerun()
 
     # --------------------------- UI PRINCIPAL ------------------
     q = st.session_state["question"]
@@ -235,7 +334,10 @@ if page == "Allenamento":
         st.markdown("<div style='height:16px'></div>", unsafe_allow_html=True)
 
         # ---------- FORM: RESPUESTA ----------
-        with st.form(key="answer_form"):
+        # CRÍTICO: Generar una key única para cada pregunta
+        form_key = f"answer_form_{q['tiempo']}_{q['nombre']}_{q['modo']}_{q['pronombre']}_{q['verb']}_{st.session_state['questions']}"
+        
+        with st.form(key=form_key):
             st.markdown(
                 "<div class='key' style='margin-bottom:4px;'>Risposta</div>",
                 unsafe_allow_html=True,
@@ -244,24 +346,83 @@ if page == "Allenamento":
                 "",
                 placeholder="Inserisci la coniugazione corretta...",
                 label_visibility="collapsed",
+                key=f"input_{form_key}",
             )
 
             submitted = st.form_submit_button(label="🎯 CONTROLLA LA RISPOSTA")
 
-            if submitted:
+            if submitted and user_input.strip():
                 ans = user_input
+                
+                # CRÍTICO: Guardar la pregunta ACTUAL antes de validar
+                current_question = st.session_state["question"].copy()
+                
                 st.session_state["validated"] = True
                 st.session_state["questions"] += 1
 
-                if normalize(ans) == normalize(q["correct"]):
+                # Comprobación de respuesta usando la pregunta GUARDADA
+                if normalize(ans) == normalize(current_question["correct"]):
                     st.session_state["score"] += 1
                     st.session_state["feedback"] = (
-                        f"<div class='feedback-correct'>✅ PERFETTO! 🎉<br>La risposta corretta è: <strong>{q['correct']}</strong></div>"
+                        f"<div class='feedback-correct'>✅ PERFETTO! 🎉<br>La risposta corretta è: <strong>{current_question['correct']}</strong></div>"
                     )
+                    # Registrar acierto en la sesión
+                    corr = {
+                        "verb": current_question.get("verb"),
+                        "modo": current_question.get("modo"),
+                        "tiempo": current_question.get("tiempo"),
+                        "nombre": current_question.get("nombre"),
+                        "pronombre": current_question.get("pronombre"),
+                        "provided": ans,
+                        "correct": current_question.get("correct"),
+                        "is_repeat": current_question.get("is_repeat", False),
+                    }
+                    st.session_state.setdefault("session_corrects", []).append(corr)
+                    # Si era una repetición y fue correctamente respondida, eliminar entradas similares
+                    if current_question.get("is_repeat"):
+                        # eliminar cualquier repetición que coincida exactamente
+                        before = len(st.session_state.get("repeat_queue", []))
+                        st.session_state["repeat_queue"] = [r for r in st.session_state.get("repeat_queue", []) if not (
+                            r.get("tiempo") == current_question.get("tiempo") and r.get("nombre") == current_question.get("nombre") and r.get("modo") == current_question.get("modo") and r.get("pronombre") == current_question.get("pronombre") and r.get("verb") == current_question.get("verb")
+                        )]
+                        if len(st.session_state.get("repeat_queue", [])) != before:
+                            save_progress()
                 else:
                     st.session_state["feedback"] = (
-                        f"<div class='feedback-incorrect'>❌ SBAGLIATO<br>La forma corretta è: <strong>{q['correct']}</strong></div>"
+                        f"<div class='feedback-incorrect'>❌ SBAGLIATO<br>La forma corretta è: <strong>{current_question['correct']}</strong></div>"
                     )
+
+                    # Registrar el error en el log
+                    err = {
+                        "verb": current_question.get("verb"),
+                        "modo": current_question.get("modo"),
+                        "tiempo": current_question.get("tiempo"),
+                        "nombre": current_question.get("nombre"),
+                        "pronombre": current_question.get("pronombre"),
+                        "provided": ans,
+                        "correct": current_question.get("correct"),
+                    }
+                    st.session_state.setdefault("error_log", []).append(err)
+                    # Registrar error en la sesión (se muestra hasta 'ricomincia')
+                    st.session_state.setdefault("session_errors", []).append(err)
+
+                    # Programar repetición: aparecerá después de 3 preguntas por defecto
+                    interval = 3
+                    scheduled_at = st.session_state.get("questions", 0) + interval
+                    repeat_item = {
+                        "tiempo": current_question.get("tiempo"),
+                        "nombre": current_question.get("nombre"),
+                        "modo": current_question.get("modo"),
+                        "pronombre": current_question.get("pronombre"),
+                        "verb": current_question.get("verb"),
+                        "correct": current_question.get("correct"),
+                        "genere": current_question.get("genere"),
+                        "scheduled_at": scheduled_at,
+                        "interval": interval,
+                        "attempts": 1,
+                    }
+                    st.session_state.setdefault("repeat_queue", []).append(repeat_item)
+                    save_progress()
 
         if st.session_state["feedback"]:
             st.markdown(st.session_state["feedback"], unsafe_allow_html=True)
@@ -303,14 +464,80 @@ if page == "Allenamento":
         with col1:
             if st.button("➡️ PROSSIMA DOMANDA", use_container_width=True):
                 new_question()
+                st.rerun()
         with col2:
             if st.button("🔄 RICOMINCIA", use_container_width=True):
                 st.session_state["score"] = 0
                 st.session_state["questions"] = 0
+                # limpiar tablas de sesión
+                st.session_state["session_corrects"] = []
+                st.session_state["session_errors"] = []
                 new_question()
+                st.rerun()
+
+        # Mostrar estado de repeticiones en la interfaz
+        pending = len(st.session_state.get("repeat_queue", []))
+        st.markdown(f"<div style='margin-top:10px; color:var(--muted);'>Repeticiones pendientes: <strong>{pending}</strong></div>", unsafe_allow_html=True)
+        if pending > 0:
+            if st.button("Ver errores recientes / administrar repeticiones"):
+                with st.expander("Errores recientes y repeticiones programadas", expanded=True):
+                    errs = st.session_state.get("error_log", [])
+                    if errs:
+                        st.write("Últimos errores (mostrando hasta 20):")
+                        st.table(pd.DataFrame(errs[-20:])[ ["verb","modo","tiempo","nombre","pronombre","provided","correct"] ])
+                    else:
+                        st.info("No hay errores registrados todavía.")
+                    st.write("Repeticiones programadas:")
+                    st.write(pd.DataFrame(st.session_state.get("repeat_queue", [])))
+                    if st.button("Limpiar repeticiones" ):
+                        st.session_state["repeat_queue"] = []
+                        save_progress()
 
         st.markdown("</div>", unsafe_allow_html=True)  # cierre mod-card lateral
         st.markdown("</div>", unsafe_allow_html=True)  # cierre grid-2
+
+        # ---------------------- REGISTRO DE SESIÓN ----------------------
+        st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
+        st.markdown("<h3 style='margin-bottom:6px;'>Registro de la sesión</h3>", unsafe_allow_html=True)
+        rc, re = st.columns(2)
+        with rc:
+            st.markdown("<strong>Aciertos (esta sesión)</strong>", unsafe_allow_html=True)
+            sc = st.session_state.get("session_corrects", [])
+            if sc:
+                df_sc = pd.DataFrame(sc)
+                # SIN campo timestamp
+                df_display = df_sc[["verb","modo","tiempo","nombre","pronombre","provided","correct"]].rename(columns={
+                    "verb": "Verbo",
+                    "modo": "Modo",
+                    "tiempo": "Tiempo",
+                    "nombre": "Nombre",
+                    "pronombre": "Pronombre",
+                    "provided": "Tu respuesta",
+                    "correct": "Correcto",
+                })
+                html_table = df_display.to_html(index=False, classes="session-table")
+                st.markdown(html_table, unsafe_allow_html=True)
+            else:
+                st.info("Sin aciertos todavía en esta sesión.")
+        with re:
+            st.markdown("<strong>Errores (esta sesión)</strong>", unsafe_allow_html=True)
+            se = st.session_state.get("session_errors", [])
+            if se:
+                df_se = pd.DataFrame(se)
+                # SIN campo timestamp
+                df_display_e = df_se[["verb","modo","tiempo","nombre","pronombre","provided","correct"]].rename(columns={
+                    "verb": "Verbo",
+                    "modo": "Modo",
+                    "tiempo": "Tiempo",
+                    "nombre": "Nombre",
+                    "pronombre": "Pronombre",
+                    "provided": "Tu respuesta",
+                    "correct": "Correcto",
+                })
+                html_table_e = df_display_e.to_html(index=False, classes="session-table session-errors")
+                st.markdown(html_table_e, unsafe_allow_html=True)
+            else:
+                st.info("Sin errores todavía en esta sesión.")
 
 # ============================================================
 #                     PAGINA: RIPASSO
