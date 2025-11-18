@@ -80,41 +80,70 @@ def normalize(text: str) -> str:
 
 
 def new_question() -> None:
-    """Genera una nueva pregunta según los filtros actuales."""
+    """Genera una nueva pregunta según los filtros actuales.
+
+    Mejora: - respeta filtros al consumir repeticiones
+             - evita repetir combinaciones ya acertadas en la sesión
+             - si se agotan las combinaciones muestra señal de finalización
+    """
     df_filtered = df.copy()
 
     # filtros de sesión (Allenamento)
-    if st.session_state["selected_modes"]:
+    if st.session_state.get("selected_modes"):
         df_filtered = df_filtered[df_filtered["Modo"].isin(st.session_state["selected_modes"])]
 
-    if st.session_state["selected_tiempos"]:
+    if st.session_state.get("selected_tiempos"):
         df_filtered = df_filtered[df_filtered["Tiempo"].isin(st.session_state["selected_tiempos"])]
 
-    if st.session_state["selected_genere"] != "Ambos":
+    if st.session_state.get("selected_genere") and st.session_state.get("selected_genere") != "Ambos":
         df_filtered = df_filtered[df_filtered["Genere"] == st.session_state["selected_genere"]]
 
     if df_filtered.empty:
         st.session_state["question"] = None
         return
+
+    # Build set of correctly answered combos in this session to avoid repeating them
+    answered = set()
+    for c in st.session_state.get("session_corrects", []):
+        answered.add((c.get("tiempo"), c.get("nombre"), c.get("modo"), c.get("pronombre"), c.get("verb")))
+
     # Priorizar preguntas programadas (repeticiones) que estén 'vencidas'
-    # Una repetición tiene 'scheduled_at' en número de preguntas transcurridas
     now_q = st.session_state.get("questions", 0)
     repeat_item = None
     if "repeat_queue" in st.session_state and st.session_state["repeat_queue"]:
-        # buscar la primera repetición cuyo scheduled_at <= now_q
-        for i, it in enumerate(st.session_state["repeat_queue"]):
+        # buscar la primera repetición cuyo scheduled_at <= now_q que además
+        # cumpla los filtros actuales y no haya sido respondida correctamente
+        for i, it in enumerate(list(st.session_state.get("repeat_queue", []))):
             if it.get("scheduled_at", 0) <= now_q:
-                repeat_item = st.session_state["repeat_queue"].pop(i)
-                break
+                key = (it.get("tiempo"), it.get("nombre"), it.get("modo"), it.get("pronombre"), it.get("verb"))
+                # si ya fue respondida correctamente, eliminarla
+                if key in answered:
+                    try:
+                        st.session_state["repeat_queue"].pop(i)
+                        save_progress()
+                    except Exception:
+                        pass
+                    continue
+                # comprobar que la combinación exista dentro de los filtros actuales
+                mask = (
+                    (df_filtered["Tiempo"] == it.get("tiempo")) &
+                    (df_filtered["Nombre"] == it.get("nombre")) &
+                    (df_filtered["Modo"] == it.get("modo")) &
+                    (df_filtered["Pronombre"] == it.get("pronombre"))
+                )
+                if mask.any():
+                    # pop y usar
+                    repeat_item = st.session_state["repeat_queue"].pop(i)
+                    save_progress()
+                    break
 
     if repeat_item:
-        # usar la repetición programada como pregunta
         st.session_state["question"] = {
             "tiempo": repeat_item["tiempo"],
             "nombre": repeat_item["nombre"],
             "modo": repeat_item["modo"],
             "pronombre": repeat_item["pronombre"],
-            "verb": repeat_item.get("verb", random.choice(st.session_state["selected_verbs"])),
+            "verb": repeat_item.get("verb", random.choice(st.session_state.get("selected_verbs", list(VERB_COLUMNS.keys())))),
             "correct": repeat_item.get("correct"),
             "genere": repeat_item.get("genere", "M"),
             "is_repeat": True,
@@ -123,23 +152,40 @@ def new_question() -> None:
         st.session_state["validated"] = False
         return
 
-    # Pregunta aleatoria normal (evitar repeticiones inmediatas)
-    max_attempts = 60
+    # Pregunta aleatoria normal (evitar repeticiones inmediatas y combos ya acertados)
+    max_attempts = 200
     attempt = 0
     chosen = None
+    selected_verbs = st.session_state.get("selected_verbs") or list(VERB_COLUMNS.keys())
+    last_qs = set(st.session_state.get("last_questions", []))
     while attempt < max_attempts:
         r = df_filtered.sample(1).iloc[0]
-        verb = random.choice(st.session_state["selected_verbs"]) if st.session_state.get("selected_verbs") else random.choice(list(VERB_COLUMNS.keys()))
-        key = (r.get("Tiempo"), r.get("Nombre"), r.get("Modo"), r.get("Pronombre"), verb)
-        if key not in st.session_state.get("last_questions", []):
+        for verb in random.sample(list(selected_verbs), k=len(selected_verbs)):
+            key = (r.get("Tiempo"), r.get("Nombre"), r.get("Modo"), r.get("Pronombre"), verb)
+            if key in last_qs:
+                continue
+            if key in answered:
+                continue
             chosen = (r, verb)
+            break
+        if chosen:
             break
         attempt += 1
 
     if chosen is None:
-        # fallback: accept last sampled
-        r = df_filtered.sample(1).iloc[0]
-        verb = random.choice(st.session_state["selected_verbs"]) if st.session_state.get("selected_verbs") else random.choice(list(VERB_COLUMNS.keys()))
+        # buscar todas las combinaciones disponibles (filtradas) que no estén ya acertadas
+        available = []
+        for _, row in df_filtered.iterrows():
+            for verb in selected_verbs:
+                k = (row.get("Tiempo"), row.get("Nombre"), row.get("Modo"), row.get("Pronombre"), verb)
+                if k not in answered and k not in last_qs:
+                    available.append((row, verb))
+        if not available:
+            # Todas las combinaciones posibles fueron contestadas correctamente
+            st.session_state["question"] = None
+            st.session_state["all_done"] = True
+            return
+        r, verb = random.choice(available)
     else:
         r, verb = chosen
 
@@ -192,6 +238,9 @@ if "feedback" not in st.session_state:
     st.session_state["feedback"] = ""
 if "validated" not in st.session_state:
     st.session_state["validated"] = False
+
+if "all_done" not in st.session_state:
+    st.session_state["all_done"] = False
 
 # keep a short history of recent question keys to avoid immediate repeats
 if "last_questions" not in st.session_state:
@@ -289,7 +338,16 @@ if page == "Allenamento":
     q = st.session_state["question"]
 
     if q is None:
-        st.error("⚠ Nessuna combinazione valida con questi filtri.")
+        if st.session_state.get("all_done"):
+            st.success("Sei un crack — sei pronto per il livello successivo!")
+            try:
+                st.balloons()
+            except Exception:
+                pass
+            # clear the flag so message is not repeated unnecessarily
+            st.session_state["all_done"] = False
+        else:
+            st.error("⚠ Nessuna combinazione valida con questi filtri.")
     else:
         # HERO
         st.markdown(
@@ -349,7 +407,21 @@ if page == "Allenamento":
                 key=f"input_{form_key}",
             )
 
-            submitted = st.form_submit_button(label="🎯 CONTROLLA LA RISPOSTA")
+            # Mostrar botones: Controlla a la izquierda, Prossima a la derecha
+            btn_col, next_col = st.columns([3,1])
+            with btn_col:
+                submitted = st.form_submit_button(label="🎯 CONTROLLA LA RISPOSTA")
+            with next_col:
+                next_pressed = st.form_submit_button(label="➡️ PROSSIMA DOMANDA")
+
+            # Si se presionó 'PROSSIMA DOMANDA' avanzamos sin validar
+            if next_pressed:
+                try:
+                    st.session_state[f"input_{form_key}"] = ""
+                except Exception:
+                    pass
+                new_question()
+                st.rerun()
 
             if submitted and user_input.strip():
                 ans = user_input
@@ -378,15 +450,13 @@ if page == "Allenamento":
                         "is_repeat": current_question.get("is_repeat", False),
                     }
                     st.session_state.setdefault("session_corrects", []).append(corr)
-                    # Si era una repetición y fue correctamente respondida, eliminar entradas similares
-                    if current_question.get("is_repeat"):
-                        # eliminar cualquier repetición que coincida exactamente
-                        before = len(st.session_state.get("repeat_queue", []))
-                        st.session_state["repeat_queue"] = [r for r in st.session_state.get("repeat_queue", []) if not (
-                            r.get("tiempo") == current_question.get("tiempo") and r.get("nombre") == current_question.get("nombre") and r.get("modo") == current_question.get("modo") and r.get("pronombre") == current_question.get("pronombre") and r.get("verb") == current_question.get("verb")
-                        )]
-                        if len(st.session_state.get("repeat_queue", [])) != before:
-                            save_progress()
+                    # Eliminar cualquier repetición programada que coincida con esta combinación
+                    before = len(st.session_state.get("repeat_queue", []))
+                    st.session_state["repeat_queue"] = [r for r in st.session_state.get("repeat_queue", []) if not (
+                        r.get("tiempo") == current_question.get("tiempo") and r.get("nombre") == current_question.get("nombre") and r.get("modo") == current_question.get("modo") and r.get("pronombre") == current_question.get("pronombre") and r.get("verb") == current_question.get("verb")
+                    )]
+                    if len(st.session_state.get("repeat_queue", [])) != before:
+                        save_progress()
                 else:
                     st.session_state["feedback"] = (
                         f"<div class='feedback-incorrect'>❌ SBAGLIATO<br>La forma corretta è: <strong>{current_question['correct']}</strong></div>"
@@ -460,36 +530,24 @@ if page == "Allenamento":
 
         st.markdown("<div style='height:14px'></div>", unsafe_allow_html=True)
 
-        col1, col2 = st.columns(2)
-        with col1:
-            if st.button("➡️ PROSSIMA DOMANDA", use_container_width=True):
-                new_question()
-                st.rerun()
-        with col2:
-            if st.button("🔄 RICOMINCIA", use_container_width=True):
-                st.session_state["score"] = 0
-                st.session_state["questions"] = 0
-                # limpiar tablas de sesión
-                st.session_state["session_corrects"] = []
-                st.session_state["session_errors"] = []
-                new_question()
-                st.rerun()
+        # Los botones de navegación se manejan junto al formulario (Prossima) y
+        # el botón RICOMINCIA se mostrará bajo el registro de la sessione.
 
-        # Mostrar estado de repeticiones en la interfaz
+        # Mostrar estado di ripetizioni nell'interfaccia
         pending = len(st.session_state.get("repeat_queue", []))
-        st.markdown(f"<div style='margin-top:10px; color:var(--muted);'>Repeticiones pendientes: <strong>{pending}</strong></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='margin-top:10px; color:var(--muted);'>Ripetizioni pendenti: <strong>{pending}</strong></div>", unsafe_allow_html=True)
         if pending > 0:
-            if st.button("Ver errores recientes / administrar repeticiones"):
-                with st.expander("Errores recientes y repeticiones programadas", expanded=True):
+            if st.button("Vedi errori recenti / gestisci ripetizioni"):
+                with st.expander("Errori recenti e ripetizioni programmate", expanded=True):
                     errs = st.session_state.get("error_log", [])
                     if errs:
-                        st.write("Últimos errores (mostrando hasta 20):")
+                        st.write("Ultimi errori (mostrando fino a 20):")
                         st.table(pd.DataFrame(errs[-20:])[ ["verb","modo","tiempo","nombre","pronombre","provided","correct"] ])
                     else:
-                        st.info("No hay errores registrados todavía.")
-                    st.write("Repeticiones programadas:")
+                        st.info("Non ci sono errori registrati al momento.")
+                    st.write("Ripetizioni programmate:")
                     st.write(pd.DataFrame(st.session_state.get("repeat_queue", [])))
-                    if st.button("Limpiar repeticiones" ):
+                    if st.button("Cancella ripetizioni" ):
                         st.session_state["repeat_queue"] = []
                         save_progress()
 
@@ -498,10 +556,19 @@ if page == "Allenamento":
 
         # ---------------------- REGISTRO DE SESIÓN ----------------------
         st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
-        st.markdown("<h3 style='margin-bottom:6px;'>Registro de la sesión</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='margin-bottom:6px;'>Registro della sessione</h3>", unsafe_allow_html=True)
+        # Pulsante RICOMINCIA sotto il titolo del registro
+        if st.button("🔄 RICOMINCIA"):
+            st.session_state["score"] = 0
+            st.session_state["questions"] = 0
+            # pulire tabelle di sessione
+            st.session_state["session_corrects"] = []
+            st.session_state["session_errors"] = []
+            new_question()
+            st.rerun()
         rc, re = st.columns(2)
         with rc:
-            st.markdown("<strong>Aciertos (esta sesión)</strong>", unsafe_allow_html=True)
+            st.markdown("<strong>Corrette (sessione)</strong>", unsafe_allow_html=True)
             sc = st.session_state.get("session_corrects", [])
             if sc:
                 df_sc = pd.DataFrame(sc)
@@ -509,18 +576,18 @@ if page == "Allenamento":
                 df_display = df_sc[["verb","modo","tiempo","nombre","pronombre","provided","correct"]].rename(columns={
                     "verb": "Verbo",
                     "modo": "Modo",
-                    "tiempo": "Tiempo",
-                    "nombre": "Nombre",
-                    "pronombre": "Pronombre",
-                    "provided": "Tu respuesta",
-                    "correct": "Correcto",
+                    "tiempo": "Tempo",
+                    "nombre": "Nome",
+                    "pronombre": "Pronome",
+                    "provided": "La tua risposta",
+                    "correct": "Corretto",
                 })
                 html_table = df_display.to_html(index=False, classes="session-table")
                 st.markdown(f"<div class='session-table-wrap'>{html_table}</div>", unsafe_allow_html=True)
             else:
-                st.info("Sin aciertos todavía en esta sesión.")
+                st.info("Nessuna risposta corretta in questa sessione.")
         with re:
-            st.markdown("<strong>Errores (esta sesión)</strong>", unsafe_allow_html=True)
+            st.markdown("<strong>Errori (sessione)</strong>", unsafe_allow_html=True)
             se = st.session_state.get("session_errors", [])
             if se:
                 df_se = pd.DataFrame(se)
@@ -528,16 +595,16 @@ if page == "Allenamento":
                 df_display_e = df_se[["verb","modo","tiempo","nombre","pronombre","provided","correct"]].rename(columns={
                     "verb": "Verbo",
                     "modo": "Modo",
-                    "tiempo": "Tiempo",
-                    "nombre": "Nombre",
-                    "pronombre": "Pronombre",
-                    "provided": "Tu respuesta",
-                    "correct": "Correcto",
+                    "tiempo": "Tempo",
+                    "nombre": "Nome",
+                    "pronombre": "Pronome",
+                    "provided": "La tua risposta",
+                    "correct": "Corretto",
                 })
                 html_table_e = df_display_e.to_html(index=False, classes="session-table session-errors")
                 st.markdown(f"<div class='session-table-wrap'>{html_table_e}</div>", unsafe_allow_html=True)
             else:
-                st.info("Sin errores todavía en esta sesión.")
+                st.info("Nessun errore in questa sessione.")
 
 # ============================================================
 #                     PAGINA: RIPASSO
@@ -694,8 +761,9 @@ if page == "Ripasso":
         table_style_inline = """
         <style>
         .excel-wrapper{overflow:auto; height:750px; border-radius:14px; border:1px solid rgba(255,255,255,0.06); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(6,8,10,0.35)); backdrop-filter:blur(8px) saturate(120%); padding:14px; box-shadow: 0 8px 30px rgba(2,6,23,0.6);}
-        .excel-table{width:100%; border-collapse:separate; border-spacing:0; font-size:0.98rem; letter-spacing:0.2px; color:#e9f0f3; font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; text-align:center;}
+        .excel-table{width:100%; border-collapse:separate; border-spacing:0; font-size:0.98rem; letter-spacing:0.2px; color:#e9f0f3; font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; text-align:center; table-layout: fixed;}
         .excel-table th, .excel-table td{ padding:12px 14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; vertical-align:middle; }
+        .excel-table td{ white-space:normal; word-break:break-word; }
         .excel-table thead th{ background: rgba(18,20,22,0.6); backdrop-filter: blur(6px); color: #ffffff !important; font-family: 'Montserrat', 'Inter', sans-serif; font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:1px; position:sticky; top:0; z-index:4; border-bottom: 1px solid rgba(255,255,255,0.04); }
         .excel-table tbody tr td{ background: rgba(255,255,255,0.01); border-bottom: 1px solid rgba(255,255,255,0.03); }
         .excel-table tbody tr:nth-child(even) td{ background: rgba(255,255,255,0.015); }
@@ -705,6 +773,18 @@ if page == "Ripasso":
         .xl-row{ background: linear-gradient(90deg, rgba(200,220,255,0.04), rgba(200,220,255,0.02)) !important; }
         .xl-col{ background: linear-gradient(180deg, rgba(200,220,255,0.02), rgba(200,220,255,0.01)) !important; }
         .xl-selected{ background: linear-gradient(90deg, rgba(212,0,0,0.9), rgba(255,40,0,0.8)) !important; font-weight:800; color:white !important; box-shadow: 0 10px 30px rgba(212,0,0,0.18) inset; }
+
+        /* Responsive tweaks inside iframe */
+        @media (max-width:900px){
+            .excel-wrapper{ height:55vh; padding:10px; }
+            .excel-table th, .excel-table td{ padding:8px 10px; font-size:0.88rem; }
+            .excel-table{ table-layout: auto; }
+        }
+        @media (max-width:480px){
+            .excel-wrapper{ height:48vh; }
+            .excel-table th, .excel-table td{ padding:6px 8px; font-size:0.82rem; }
+            .excel-table{ table-layout: auto; }
+        }
         </style>
         """
 

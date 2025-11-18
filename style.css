@@ -333,6 +333,9 @@ section[data-testid="stSidebar"]{
 .session-table thead th:first-child, .session-table tbody td:first-child{ width:180px !important; }
 .session-table thead th:nth-child(2), .session-table tbody td:nth-child(2){ width:90px !important; }
 
+/* Wrapper to allow horizontal scroll and limit height on small screens */
+.session-table-wrap{ overflow:auto; max-height:36vh; padding-right:6px; }
+
 @media (max-width: 900px){
     .session-table{ font-size:0.85rem !important; }
     .session-table thead th:first-child, .session-table tbody td:first-child{ width:140px !important; }
@@ -361,4 +364,5 @@ section[data-testid="stSidebar"]{
     .session-table{ font-size:0.78rem !important; display:block; overflow:auto; }
     .session-table thead th:first-child, .session-table tbody td:first-child{ width:130px !important; }
     .progress-ring{ --size:56px; }
+    .session-table-wrap{ max-height:28vh; }
 }

@@ -96,33 +96,54 @@
       "pronombre": "Voi",
       "provided": "crederei",
       "correct": "credeste"
+    },
+    {
+      "verb": "essere",
+      "modo": "Condizionale",
+      "tiempo": "Presente",
+      "nombre": "Condizionale presente",
+      "pronombre": "Lui",
+      "provided": "sera",
+      "correct": "sarebbe"
+    },
+    {
+      "verb": "essere",
+      "modo": "Congiuntivo",
+      "tiempo": "Presente",
+      "nombre": "Congiuntivo Presente",
+      "pronombre": "Lui",
+      "provided": "sarebbe",
+      "correct": "sia"
+    },
+    {
+      "verb": "essere",
+      "modo": "Condizionale",
+      "tiempo": "Presente",
+      "nombre": "Condizionale presente",
+      "pronombre": "Tu",
+      "provided": "sia",
+      "correct": "saresti"
+    },
+    {
+      "verb": "essere",
+      "modo": "Condizionale",
+      "tiempo": "Presente",
+      "nombre": "Condizionale presente",
+      "pronombre": "Tu",
+      "provided": "sia",
+      "correct": "saresti"
+    },
+    {
+      "verb": "essere",
+      "modo": "Congiuntivo",
+      "tiempo": "Presente",
+      "nombre": "Congiuntivo Presente",
+      "pronombre": "Noi",
+      "provided": "saremmo",
+      "correct": "siamo"
     }
   ],
   "repeat_queue": [
-    {
-      "tiempo": "Presente",
-      "nombre": "Condizionale presente",
-      "modo": "Condizionale",
-      "pronombre": "Voi",
-      "verb": "essere",
-      "correct": "sareste",
-      "genere": "M",
-      "scheduled_at": 4,
-      "interval": 3,
-      "attempts": 1
-    },
-    {
-      "tiempo": "Presente",
-      "nombre": "Congiuntivo Presente",
-      "modo": "Congiuntivo",
-      "pronombre": "Voi",
-      "verb": "essere",
-      "correct": "siate",
-      "genere": "M",
-      "scheduled_at": 4,
-      "interval": 3,
-      "attempts": 1
-    },
     {
       "tiempo": "Passato",
       "nombre": "Prossimo",
@@ -216,6 +237,18 @@
       "correct": "credeste",
       "genere": "M",
       "scheduled_at": 6,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "tiempo": "Presente",
+      "nombre": "Congiuntivo Presente",
+      "modo": "Congiuntivo",
+      "pronombre": "Noi",
+      "verb": "essere",
+      "correct": "siamo",
+      "genere": "M",
+      "scheduled_at": 17,
       "interval": 3,
       "attempts": 1
     }
