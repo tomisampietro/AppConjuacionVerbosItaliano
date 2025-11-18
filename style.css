@@ -337,3 +337,28 @@ section[data-testid="stSidebar"]{
     .session-table{ font-size:0.85rem !important; }
     .session-table thead th:first-child, .session-table tbody td:first-child{ width:140px !important; }
 }
+
+/* Responsive adjustments: 모바일 / tablets */
+@media (max-width: 900px){
+    .grid-2{ grid-template-columns: 1fr; gap:1rem; }
+    .hero{ padding:1.2rem; border-radius:12px; }
+    .hero-title{ font-size:2rem; }
+    .hero-sub{ font-size:0.95rem; }
+    .mod-card{ padding:1rem; }
+    .excel-wrapper{ height:50vh; padding:10px; }
+    .excel-table th, .excel-table td{ padding:8px 10px; font-size:0.88rem; }
+    .progress-ring{ --size:64px; }
+    .tag-verb{ padding:0.35rem 0.7rem; font-size:0.9rem; }
+}
+
+@media (max-width: 480px){
+    .hero{ padding:0.8rem; }
+    .hero-title{ font-size:1.6rem; }
+    .grid-2{ grid-template-columns: 1fr; }
+    .mod-card{ padding:0.8rem; border-radius:10px; }
+    .excel-wrapper{ height:42vh; }
+    .excel-table th, .excel-table td{ padding:6px 8px; font-size:0.82rem; }
+    .session-table{ font-size:0.78rem !important; display:block; overflow:auto; }
+    .session-table thead th:first-child, .session-table tbody td:first-child{ width:130px !important; }
+    .progress-ring{ --size:56px; }
+}

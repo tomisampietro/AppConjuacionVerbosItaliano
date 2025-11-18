@@ -516,7 +516,7 @@ if page == "Allenamento":
                     "correct": "Correcto",
                 })
                 html_table = df_display.to_html(index=False, classes="session-table")
-                st.markdown(html_table, unsafe_allow_html=True)
+                st.markdown(f"<div class='session-table-wrap'>{html_table}</div>", unsafe_allow_html=True)
             else:
                 st.info("Sin aciertos todavía en esta sesión.")
         with re:
@@ -535,7 +535,7 @@ if page == "Allenamento":
                     "correct": "Correcto",
                 })
                 html_table_e = df_display_e.to_html(index=False, classes="session-table session-errors")
-                st.markdown(html_table_e, unsafe_allow_html=True)
+                st.markdown(f"<div class='session-table-wrap'>{html_table_e}</div>", unsafe_allow_html=True)
             else:
                 st.info("Sin errores todavía en esta sesión.")
 
@@ -565,61 +565,50 @@ if page == "Ripasso":
     #  multiselect en función de las selecciones previas para
     #  mantener coherencia entre filtros (cascading filters)
     # ------------------------------------------------------
-    # Modo (primer nivel)
-    modo_options = sorted(df_base["Modo"].unique())
-    modo_default = st.session_state.get("rip_modo", [])
-    modo_f = st.sidebar.multiselect("Modo", modo_options, default=[m for m in modo_default if m in modo_options])
+    # Filtros bidireccionales: cada conjunto de opciones se calcula
+    # considerando las selecciones actuales en los otros filtros.
+    rip_modo = st.session_state.get("rip_modo", [])
+    rip_tempo = st.session_state.get("rip_tempo", [])
+    rip_nome = st.session_state.get("rip_nome", [])
+    rip_pron = st.session_state.get("rip_pron", [])
+    rip_gen = st.session_state.get("rip_gen", [])
+
+    def _options_for(col_name: str):
+        df_tmp = df_base.copy()
+        if col_name != "Modo" and rip_modo:
+            df_tmp = df_tmp[df_tmp["Modo"].isin(rip_modo)]
+        if col_name != "Tiempo" and rip_tempo:
+            df_tmp = df_tmp[df_tmp["Tiempo"].isin(rip_tempo)]
+        if col_name != "Nombre" and rip_nome:
+            df_tmp = df_tmp[df_tmp["Nombre"].isin(rip_nome)]
+        if col_name != "Pronombre" and rip_pron:
+            df_tmp = df_tmp[df_tmp["Pronombre"].isin(rip_pron)]
+        if col_name != "Genere" and rip_gen:
+            df_tmp = df_tmp[df_tmp["Genere"].isin(rip_gen)]
+        opts = [x for x in sorted(df_tmp[col_name].dropna().unique())]
+        return opts
+
+    modo_options = _options_for("Modo")
+    modo_f = st.sidebar.multiselect(f"Modo ({len(modo_options)})", modo_options, default=[m for m in rip_modo if m in modo_options])
     st.session_state["rip_modo"] = modo_f
 
-    # Tiempo depende de Modo
-    if modo_f:
-        tempo_options = sorted(df_base[df_base["Modo"].isin(modo_f)]["Tiempo"].unique())
-    else:
-        tempo_options = sorted(df_base["Tiempo"].unique())
-    tempo_default = st.session_state.get("rip_tempo", [])
-    tempo_f = st.sidebar.multiselect("Tempo", tempo_options, default=[t for t in tempo_default if t in tempo_options])
+    tempo_options = _options_for("Tiempo")
+    tempo_f = st.sidebar.multiselect(f"Tempo ({len(tempo_options)})", tempo_options, default=[t for t in rip_tempo if t in tempo_options])
     st.session_state["rip_tempo"] = tempo_f
 
-    # Nome depende de Modo + Tempo
-    df_for_nome = df_base
-    if modo_f:
-        df_for_nome = df_for_nome[df_for_nome["Modo"].isin(modo_f)]
-    if tempo_f:
-        df_for_nome = df_for_nome[df_for_nome["Tiempo"].isin(tempo_f)]
-    nome_options = sorted(df_for_nome["Nombre"].unique())
-    nome_default = st.session_state.get("rip_nome", [])
-    nome_f = st.sidebar.multiselect("Nome", nome_options, default=[n for n in nome_default if n in nome_options])
+    nome_options = _options_for("Nombre")
+    nome_f = st.sidebar.multiselect(f"Nome ({len(nome_options)})", nome_options, default=[n for n in rip_nome if n in nome_options])
     st.session_state["rip_nome"] = nome_f
 
-    # Pronome depende de los filtros anteriores
-    df_for_pron = df_base
-    if modo_f:
-        df_for_pron = df_for_pron[df_for_pron["Modo"].isin(modo_f)]
-    if tempo_f:
-        df_for_pron = df_for_pron[df_for_pron["Tiempo"].isin(tempo_f)]
-    if nome_f:
-        df_for_pron = df_for_pron[df_for_pron["Nombre"].isin(nome_f)]
-    # Mantener un orden humano para pronombres
+    # Pronombres: mantener orden humano pero calcular opciones bidireccionalmente
     pron_order = ["Io", "Tu", "Lui", "Noi", "Voi", "Loro"]
-    pron_options_raw = sorted(df_for_pron["Pronombre"].unique())
+    pron_options_raw = _options_for("Pronombre")
     pron_options = [p for p in pron_order if p in pron_options_raw] + [p for p in pron_options_raw if p not in pron_order]
-    pron_default = st.session_state.get("rip_pron", [])
-    pron_f = st.sidebar.multiselect("Pronome", pron_options, default=[p for p in pron_default if p in pron_options])
+    pron_f = st.sidebar.multiselect(f"Pronome ({len(pron_options)})", pron_options, default=[p for p in rip_pron if p in pron_options])
     st.session_state["rip_pron"] = pron_f
 
-    # Genere depende de todo lo anterior
-    df_for_gen = df_base
-    if modo_f:
-        df_for_gen = df_for_gen[df_for_gen["Modo"].isin(modo_f)]
-    if tempo_f:
-        df_for_gen = df_for_gen[df_for_gen["Tiempo"].isin(tempo_f)]
-    if nome_f:
-        df_for_gen = df_for_gen[df_for_gen["Nombre"].isin(nome_f)]
-    if pron_f:
-        df_for_gen = df_for_gen[df_for_gen["Pronombre"].isin(pron_f)]
-    gen_options = sorted(df_for_gen["Genere"].unique())
-    gen_default = st.session_state.get("rip_gen", [])
-    gen_f = st.sidebar.multiselect("Genere", gen_options, default=[g for g in gen_default if g in gen_options])
+    gen_options = _options_for("Genere")
+    gen_f = st.sidebar.multiselect(f"Genere ({len(gen_options)})", gen_options, default=[g for g in rip_gen if g in gen_options])
     st.session_state["rip_gen"] = gen_f
 
     # ------------------------------------------------------
