@@ -1,65 +1,1205 @@
 {
-  "score": 27,
-  "questions": 40,
+  "score": 184,
+  "questions": 245,
   "session_corrects": [
     {
       "verb": "avere",
-      "modo": "Remoto",
+      "modo": "Indicativo",
       "tiempo": "Passato",
-      "nombre": "Remoto",
+      "nombre": "Imperfetto",
       "pronombre": "Tu",
-      "provided": "avesti",
-      "correct": "avesti",
+      "provided": "avevi",
+      "correct": "avevi",
       "is_repeat": false
     },
     {
-      "verb": "essere",
-      "modo": "Remoto",
+      "verb": "dormire",
+      "modo": "Indicativo",
       "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Tu",
-      "provided": "fosti",
-      "correct": "fosti",
-      "is_repeat": false
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "dormivate",
+      "correct": "dormivate",
+      "is_repeat": true
     },
     {
-      "verb": "essere",
-      "modo": "Remoto",
+      "verb": "dormire",
+      "modo": "Indicativo",
       "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Lui",
-      "provided": "fu",
-      "correct": "fu",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "dormivamo",
+      "correct": "dormivamo",
+      "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "dormivo",
+      "correct": "dormivo",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "credevo",
+      "correct": "credevo",
       "is_repeat": false
     },
     {
       "verb": "avere",
-      "modo": "Remoto",
+      "modo": "Indicativo",
       "tiempo": "Passato",
-      "nombre": "Remoto",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "avevo",
+      "correct": "avevo",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
       "pronombre": "Loro",
-      "provided": "ebbero",
-      "correct": "ebbero",
+      "provided": "mangiavano",
+      "correct": "mangiavano",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Loro",
+      "provided": "credevano",
+      "correct": "credevano",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "credevamo",
+      "correct": "credevamo",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "avevamo",
+      "correct": "avevamo",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "ero",
+      "correct": "ero",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Loro",
+      "provided": "avevano",
+      "correct": "avevano",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "credeva",
+      "correct": "credeva",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "dormiva",
+      "correct": "dormiva",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "mangiavo",
+      "correct": "mangiavo",
+      "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Loro",
+      "provided": "dormivano",
+      "correct": "dormivano",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "mangiava",
+      "correct": "mangiava",
+      "is_repeat": true
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "mangiavi",
+      "correct": "mangiavi",
+      "is_repeat": true
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "avevate",
+      "correct": "avevate",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "credevate",
+      "correct": "credevate",
       "is_repeat": true
     },
     {
       "verb": "essere",
-      "modo": "Remoto",
+      "modo": "Indicativo",
       "tiempo": "Passato",
-      "nombre": "Remoto",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "era",
+      "correct": "era",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "aveva",
+      "correct": "aveva",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
       "pronombre": "Loro",
-      "provided": "furono",
-      "correct": "furono",
+      "provided": "erano",
+      "correct": "erano",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "credevi",
+      "correct": "credevi",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "mangiavamo",
+      "correct": "mangiavamo",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "eri",
+      "correct": "eri",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "mangiavate",
+      "correct": "mangiavate",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "eravate",
+      "correct": "eravate",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "dormivi",
+      "correct": "dormivi",
       "is_repeat": true
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "eravamo",
+      "correct": "eravamo",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "era",
+      "correct": "era",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Loro",
+      "provided": "avevano",
+      "correct": "avevano",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "credeva",
+      "correct": "credeva",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "mangiavi",
+      "correct": "mangiavi",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Loro",
+      "provided": "erano",
+      "correct": "erano",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "credevate",
+      "correct": "credevate",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "mangiavi",
+      "correct": "mangiavi",
+      "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "dormiva",
+      "correct": "dormiva",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Loro",
+      "provided": "dormivano",
+      "correct": "dormivano",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "credevamo",
+      "correct": "credevamo",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "mangiava",
+      "correct": "mangiava",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "mangiavate",
+      "correct": "mangiavate",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "aveva",
+      "correct": "aveva",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "eri",
+      "correct": "eri",
+      "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "dormivi",
+      "correct": "dormivi",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "avevate",
+      "correct": "avevate",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "credevi",
+      "correct": "credevi",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Loro",
+      "provided": "credevano",
+      "correct": "credevano",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Loro",
+      "provided": "mangiavano",
+      "correct": "mangiavano",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "mangiavamo",
+      "correct": "mangiavamo",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "avevi",
+      "correct": "avevi",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "credevo",
+      "correct": "credevo",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "avevamo",
+      "correct": "avevamo",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "dormivate",
+      "correct": "dormivate",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "eravate",
+      "correct": "eravate",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "avevo",
+      "correct": "avevo",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "eravamo",
+      "correct": "eravamo",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "dormivamo",
+      "correct": "dormivamo",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "ero",
+      "correct": "ero",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "mangiavo",
+      "correct": "mangiavo",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "dormivo",
+      "correct": "dormivo",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Tu",
+      "provided": "hai dormito",
+      "correct": "hai dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Io",
+      "provided": "ho mangiato",
+      "correct": "ho mangiato",
+      "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Loro",
+      "provided": "hanno dormito",
+      "correct": "hanno dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Lui",
+      "provided": "ha avuto",
+      "correct": "ha avuto",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Noi",
+      "provided": "abbiamo creduto",
+      "correct": "abbiamo creduto",
+      "is_repeat": true
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Tu",
+      "provided": "hai avuto",
+      "correct": "hai avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Lui",
+      "provided": "ha mangiato",
+      "correct": "ha mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Voi",
+      "provided": "avete avuto",
+      "correct": "avete avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Noi",
+      "provided": "abbiamo avuto",
+      "correct": "abbiamo avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Tu",
+      "provided": "hai creduto",
+      "correct": "hai creduto",
+      "is_repeat": true
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Tu",
+      "provided": "hai mangiato",
+      "correct": "hai mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Tu",
+      "provided": "sei stato",
+      "correct": "sei stato",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Lui",
+      "provided": "ha creduto",
+      "correct": "ha creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Lui",
+      "provided": "ha dormito",
+      "correct": "ha dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Loro",
+      "provided": "hanno creduto",
+      "correct": "hanno creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Noi",
+      "provided": "siamo stati",
+      "correct": "siamo stati",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Loro",
+      "provided": "hanno avuto",
+      "correct": "hanno avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Loro",
+      "provided": "sono stati",
+      "correct": "sono stati",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Voi",
+      "provided": "avete mangiato",
+      "correct": "avete mangiato",
+      "is_repeat": true
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Io",
+      "provided": "sono stato",
+      "correct": "sono stato",
+      "is_repeat": true
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Loro",
+      "provided": "hanno mangiato",
+      "correct": "hanno mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Noi",
+      "provided": "abbiamo mangiato",
+      "correct": "abbiamo mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Noi",
+      "provided": "abbiamo dormito",
+      "correct": "abbiamo dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Io",
+      "provided": "ho creduto",
+      "correct": "ho creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Io",
+      "provided": "ho avuto",
+      "correct": "ho avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Voi",
+      "provided": "avete dormito",
+      "correct": "avete dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Io",
+      "provided": "ho dormito",
+      "correct": "ho dormito",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Voi",
+      "provided": "avete creduto",
+      "correct": "avete creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Loro",
+      "provided": "erano stati",
+      "correct": "erano stati",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Loro",
+      "provided": "avevano avuto",
+      "correct": "avevano avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Tu",
+      "provided": "avevi avuto",
+      "correct": "avevi avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Tu",
+      "provided": "avevi dormito",
+      "correct": "avevi dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Tu",
+      "provided": "eri stato",
+      "correct": "eri stato",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Io",
+      "provided": "ero stato",
+      "correct": "ero stato",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Loro",
+      "provided": "avevano dormito",
+      "correct": "avevano dormito",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Io",
+      "provided": "avevo creduto",
+      "correct": "avevo creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Voi",
+      "provided": "eravate stati",
+      "correct": "eravate stati",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Noi",
+      "provided": "avevamo avuto",
+      "correct": "avevamo avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Tu",
+      "provided": "avevi creduto",
+      "correct": "avevi creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Io",
+      "provided": "avevo mangiato",
+      "correct": "avevo mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Loro",
+      "provided": "avevano creduto",
+      "correct": "avevano creduto",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Noi",
+      "provided": "avevamo creduto",
+      "correct": "avevamo creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Io",
+      "provided": "avevo avuto",
+      "correct": "avevo avuto",
+      "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Io",
+      "provided": "avevo dormito",
+      "correct": "avevo dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Lui",
+      "provided": "aveva avuto",
+      "correct": "aveva avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Lui",
+      "provided": "era stato",
+      "correct": "era stato",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Lui",
+      "provided": "aveva mangiato",
+      "correct": "aveva mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Loro",
+      "provided": "avevano mangiato",
+      "correct": "avevano mangiato",
+      "is_repeat": true
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Voi",
+      "provided": "avevate mangiato",
+      "correct": "avevate mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Noi",
+      "provided": "avevamo mangiato",
+      "correct": "avevamo mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Lui",
+      "provided": "aveva dormito",
+      "correct": "aveva dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Voi",
+      "provided": "avevate dormito",
+      "correct": "avevate dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Voi",
+      "provided": "avevate creduto",
+      "correct": "avevate creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Lui",
+      "provided": "aveva creduto",
+      "correct": "aveva creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Noi",
+      "provided": "avevamo dormito",
+      "correct": "avevamo dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Tu",
+      "provided": "avevi mangiato",
+      "correct": "avevi mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Noi",
+      "provided": "eravamo stati",
+      "correct": "eravamo stati",
+      "is_repeat": false
     },
     {
       "verb": "mangiare",
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
-      "pronombre": "Tu",
-      "provided": "mangiasti",
-      "correct": "mangiasti",
+      "pronombre": "Io",
+      "provided": "mangiai",
+      "correct": "mangiai",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Noi",
+      "provided": "mangiammo",
+      "correct": "mangiammo",
       "is_repeat": false
     },
     {
@@ -70,56 +1210,6 @@
       "pronombre": "Lui",
       "provided": "ebbe",
       "correct": "ebbe",
-      "is_repeat": false
-    },
-    {
-      "verb": "dormire",
-      "modo": "Remoto",
-      "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Tu",
-      "provided": "dormisti",
-      "correct": "dormisti",
-      "is_repeat": true
-    },
-    {
-      "verb": "credere",
-      "modo": "Remoto",
-      "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Voi",
-      "provided": "credeste",
-      "correct": "credeste",
-      "is_repeat": false
-    },
-    {
-      "verb": "dormire",
-      "modo": "Remoto",
-      "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Lui",
-      "provided": "dormi",
-      "correct": "dormì",
-      "is_repeat": true
-    },
-    {
-      "verb": "credere",
-      "modo": "Remoto",
-      "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Lui",
-      "provided": "credette",
-      "correct": "credette",
-      "is_repeat": false
-    },
-    {
-      "verb": "dormire",
-      "modo": "Remoto",
-      "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Voi",
-      "provided": "dormiste",
-      "correct": "dormiste",
       "is_repeat": false
     },
     {
@@ -140,16 +1230,16 @@
       "pronombre": "Loro",
       "provided": "credettero",
       "correct": "credettero",
-      "is_repeat": false
+      "is_repeat": true
     },
     {
-      "verb": "credere",
+      "verb": "essere",
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
-      "pronombre": "Noi",
-      "provided": "credemmo",
-      "correct": "credemmo",
+      "pronombre": "Voi",
+      "provided": "foste",
+      "correct": "foste",
       "is_repeat": true
     },
     {
@@ -157,19 +1247,49 @@
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
+      "pronombre": "Tu",
+      "provided": "dormisti",
+      "correct": "dormisti",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Lui",
+      "provided": "credo",
+      "correct": "credo",
+      "is_repeat": true
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
       "pronombre": "Noi",
-      "provided": "dormimmo",
-      "correct": "dormimmo",
+      "provided": "fummo",
+      "correct": "fummo",
       "is_repeat": false
     },
     {
-      "verb": "avere",
+      "verb": "credere",
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
       "pronombre": "Voi",
-      "provided": "aveste",
-      "correct": "aveste",
+      "provided": "credeste",
+      "correct": "credeste",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Noi",
+      "provided": "mangiammo",
+      "correct": "mangiammo",
       "is_repeat": false
     },
     {
@@ -183,6 +1303,26 @@
       "is_repeat": false
     },
     {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Voi",
+      "provided": "aveste",
+      "correct": "aveste",
+      "is_repeat": true
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Loro",
+      "provided": "furono",
+      "correct": "furono",
+      "is_repeat": false
+    },
+    {
       "verb": "mangiare",
       "modo": "Remoto",
       "tiempo": "Passato",
@@ -193,13 +1333,63 @@
       "is_repeat": false
     },
     {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Tu",
+      "provided": "avesti",
+      "correct": "avesti",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Loro",
+      "provided": "credettero",
+      "correct": "credettero",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Noi",
+      "provided": "credemmo",
+      "correct": "credemmo",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Loro",
+      "provided": "mangiarono",
+      "correct": "mangiarono",
+      "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Lui",
+      "provided": "dormi",
+      "correct": "dormì",
+      "is_repeat": true
+    },
+    {
       "verb": "essere",
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
-      "pronombre": "Io",
-      "provided": "fui",
-      "correct": "fui",
+      "pronombre": "Voi",
+      "provided": "foste",
+      "correct": "foste",
       "is_repeat": false
     },
     {
@@ -217,9 +1407,69 @@
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
+      "pronombre": "Loro",
+      "provided": "ebbero",
+      "correct": "ebbero",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Noi",
+      "provided": "dormimmo",
+      "correct": "dormimmo",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Lui",
+      "provided": "credo",
+      "correct": "credo",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Io",
+      "provided": "credei",
+      "correct": "credei",
+      "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Voi",
+      "provided": "dormiste",
+      "correct": "dormiste",
+      "is_repeat": true
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
       "pronombre": "Noi",
       "provided": "avemmo",
       "correct": "avemmo",
+      "is_repeat": true
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Lui",
+      "provided": "ebbe",
+      "correct": "ebbe",
       "is_repeat": false
     },
     {
@@ -227,19 +1477,59 @@
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
-      "pronombre": "Voi",
-      "provided": "foste",
-      "correct": "foste",
-      "is_repeat": true
+      "pronombre": "Lui",
+      "provided": "fu",
+      "correct": "fu",
+      "is_repeat": false
     },
     {
       "verb": "essere",
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
-      "pronombre": "Noi",
-      "provided": "fummo",
-      "correct": "fummo",
+      "pronombre": "Io",
+      "provided": "fui",
+      "correct": "fui",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Tu",
+      "provided": "fosti",
+      "correct": "fosti",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Io",
+      "provided": "dormii",
+      "correct": "dormii",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Tu",
+      "provided": "credesti",
+      "correct": "credesti",
+      "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Tu",
+      "provided": "dormisti",
+      "correct": "dormisti",
       "is_repeat": false
     },
     {
@@ -253,35 +1543,635 @@
       "is_repeat": false
     },
     {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Tu",
+      "provided": "avesti creduto",
+      "correct": "avesti creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Lui",
+      "provided": "fu stato",
+      "correct": "fu stato",
+      "is_repeat": true
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Loro",
+      "provided": "furono stati",
+      "correct": "furono stati",
+      "is_repeat": true
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Voi",
+      "provided": "aveste avuto",
+      "correct": "aveste avuto",
+      "is_repeat": true
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Tu",
+      "provided": "avesti avuto",
+      "correct": "avesti avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Voi",
+      "provided": "aveste creduto",
+      "correct": "aveste creduto",
+      "is_repeat": true
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Tu",
+      "provided": "fosti stato",
+      "correct": "fosti stato",
+      "is_repeat": true
+    },
+    {
       "verb": "mangiare",
       "modo": "Remoto",
       "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Loro",
-      "provided": "mangiarono",
-      "correct": "mangiarono",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Noi",
+      "provided": "avemmo mangiato",
+      "correct": "avemmo mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Voi",
+      "provided": "foste stati",
+      "correct": "foste stati",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Tu",
+      "provided": "avesti mangiato",
+      "correct": "avesti mangiato",
       "is_repeat": false
     },
     {
       "verb": "dormire",
       "modo": "Remoto",
       "tiempo": "Passato",
-      "nombre": "Remoto",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Tu",
+      "provided": "avesti dormito",
+      "correct": "avesti dormito",
+      "is_repeat": true
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Noi",
+      "provided": "fummo stati",
+      "correct": "fummo stati",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Voi",
+      "provided": "aveste mangiato",
+      "correct": "aveste mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Loro",
+      "provided": "ebbero mangiato",
+      "correct": "ebbero mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
       "pronombre": "Io",
-      "provided": "dormii",
-      "correct": "dormii",
+      "provided": "ebbi creduto",
+      "correct": "ebbi creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Lui",
+      "provided": "ebbe creduto",
+      "correct": "ebbe creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Lui",
+      "provided": "ebbe avuto",
+      "correct": "ebbe avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Voi",
+      "provided": "aveste dormito",
+      "correct": "aveste dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Lui",
+      "provided": "ebbe dormito",
+      "correct": "ebbe dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Noi",
+      "provided": "avemmo dormito",
+      "correct": "avemmo dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Noi",
+      "provided": "avemmo avuto",
+      "correct": "avemmo avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Loro",
+      "provided": "ebbero dormito",
+      "correct": "ebbero dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Loro",
+      "provided": "ebbero avuto",
+      "correct": "ebbero avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Lui",
+      "provided": "ebbe mangiato",
+      "correct": "ebbe mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Loro",
+      "provided": "ebbero creduto",
+      "correct": "ebbero creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Noi",
+      "provided": "avemmo creduto",
+      "correct": "avemmo creduto",
+      "is_repeat": true
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Io",
+      "provided": "ebbi mangiato",
+      "correct": "ebbi mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Io",
+      "provided": "ebbi dormito",
+      "correct": "ebbi dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Io",
+      "provided": "ebbi avuto",
+      "correct": "ebbi avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Io",
+      "provided": "fui stato",
+      "correct": "fui stato",
       "is_repeat": false
     }
   ],
   "session_errors": [
     {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "dormisti",
+      "correct": "dormivate",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Noi",
+      "provided": "dormimo",
+      "correct": "dormivamo",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Loro",
+      "provided": "mangiarono",
+      "correct": "mangiavano",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "dormi",
+      "correct": "dormivo",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Loro",
+      "provided": "mangiarano",
+      "correct": "mangiavano",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "credevamo",
+      "correct": "credevate",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "mangi",
+      "correct": "mangiavi",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Io",
+      "provided": "mangi",
+      "correct": "mangiavo",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "credevo",
+      "correct": "credevate",
+      "is_repeat": true
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "mangiasti",
+      "correct": "mangiavi",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "credevamo",
+      "correct": "credevate",
+      "is_repeat": true
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Lui",
+      "provided": "mangiaba",
+      "correct": "mangiava",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "mangiavo",
+      "correct": "mangiavi",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Voi",
+      "provided": "credesti",
+      "correct": "credevate",
+      "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "dormivo",
+      "correct": "dormivi",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "mangiavo",
+      "correct": "mangiavi",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Imperfetto",
+      "pronombre": "Tu",
+      "provided": "era",
+      "correct": "eri",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Noi",
+      "provided": "avevamo creduto",
+      "correct": "abbiamo creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Io",
+      "provided": "avevo mangiato",
+      "correct": "ho mangiato",
+      "is_repeat": false
+    },
+    {
       "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Lui",
+      "provided": "aveva avuto",
+      "correct": "ha avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Noi",
+      "provided": "abiamo creduto",
+      "correct": "abbiamo creduto",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Tu",
+      "provided": "hau creduto",
+      "correct": "hai creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Voi",
+      "provided": "abbiamo mangiato",
+      "correct": "avete mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Io",
+      "provided": "ho stato",
+      "correct": "sono stato",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Io",
+      "provided": "avevo dormito",
+      "correct": "ho dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Prossimo",
+      "pronombre": "Voi",
+      "provided": "avete stati",
+      "correct": "siete stati",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Loro",
+      "provided": "hanno dormito",
+      "correct": "avevano dormito",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Loro",
+      "provided": "hanno creduto",
+      "correct": "avevano creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Io",
+      "provided": "avevo creduto",
+      "correct": "avevo avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Loro",
+      "provided": "avaveno mangiato",
+      "correct": "avevano mangiato",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Voi",
+      "provided": "eravate stati",
+      "correct": "avevate avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Lui",
+      "provided": "creda",
+      "correct": "credo",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
       "pronombre": "Loro",
-      "provided": "avevano",
-      "correct": "ebbero",
+      "provided": "credono",
+      "correct": "credettero",
       "is_repeat": false
     },
     {
@@ -289,9 +2179,9 @@
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
-      "pronombre": "Loro",
-      "provided": "ebbero",
-      "correct": "furono",
+      "pronombre": "Voi",
+      "provided": "fosti",
+      "correct": "foste",
       "is_repeat": false
     },
     {
@@ -300,8 +2190,48 @@
       "tiempo": "Passato",
       "nombre": "Remoto",
       "pronombre": "Tu",
-      "provided": "dormi",
+      "provided": "dormistii",
       "correct": "dormisti",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Lui",
+      "provided": "credevo",
+      "correct": "credo",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Lui",
+      "provided": "credeva",
+      "correct": "aveva creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Voi",
+      "provided": "avesti",
+      "correct": "aveste",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Loro",
+      "provided": "credebbero",
+      "correct": "credettero",
       "is_repeat": false
     },
     {
@@ -315,23 +2245,23 @@
       "is_repeat": false
     },
     {
-      "verb": "dormire",
-      "modo": "Remoto",
-      "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Tu",
-      "provided": "dormiste",
-      "correct": "dormisti",
-      "is_repeat": true
-    },
-    {
       "verb": "credere",
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
-      "pronombre": "Noi",
-      "provided": "dormimmo",
-      "correct": "credemmo",
+      "pronombre": "Loro",
+      "provided": "credebbero",
+      "correct": "credettero",
+      "is_repeat": true
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Loro",
+      "provided": "mangiarano",
+      "correct": "mangiarono",
       "is_repeat": false
     },
     {
@@ -340,7 +2270,7 @@
       "tiempo": "Passato",
       "nombre": "Remoto",
       "pronombre": "Lui",
-      "provided": "dormio",
+      "provided": "dormo",
       "correct": "dormì",
       "is_repeat": true
     },
@@ -349,9 +2279,39 @@
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
+      "pronombre": "Io",
+      "provided": "credo",
+      "correct": "credei",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
       "pronombre": "Noi",
-      "provided": "crediammo",
-      "correct": "credemmo",
+      "provided": "avemo dormito",
+      "correct": "dormimmo",
+      "is_repeat": false
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Loro",
+      "provided": "dormino",
+      "correct": "dormirono",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Io",
+      "provided": "credevi",
+      "correct": "credei",
       "is_repeat": true
     },
     {
@@ -360,8 +2320,8 @@
       "tiempo": "Passato",
       "nombre": "Remoto",
       "pronombre": "Lui",
-      "provided": "credi",
-      "correct": "credette",
+      "provided": "credei",
+      "correct": "credo",
       "is_repeat": false
     },
     {
@@ -369,52 +2329,166 @@
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
-      "pronombre": "Noi",
-      "provided": "crediammo",
-      "correct": "credemmo",
+      "pronombre": "Io",
+      "provided": "credo",
+      "correct": "credei",
       "is_repeat": true
+    },
+    {
+      "verb": "dormire",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Voi",
+      "provided": "dormite",
+      "correct": "dormiste",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Noi",
+      "provided": "aveste",
+      "correct": "avemmo",
+      "is_repeat": false
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Tu",
+      "provided": "credei",
+      "correct": "credesti",
+      "is_repeat": false
+    },
+    {
+      "verb": "mangiare",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Remoto",
+      "pronombre": "Tu",
+      "provided": "mangiai",
+      "correct": "mangiasti",
+      "is_repeat": false
     },
     {
       "verb": "essere",
       "modo": "Remoto",
       "tiempo": "Passato",
-      "nombre": "Remoto",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Lui",
+      "provided": "ebbe stato",
+      "correct": "fu stato",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
       "pronombre": "Voi",
-      "provided": "eravate",
-      "correct": "foste",
+      "provided": "foste avuto",
+      "correct": "aveste avuto",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Loro",
+      "provided": "ebbero stati",
+      "correct": "furono stati",
+      "is_repeat": false
+    },
+    {
+      "verb": "avere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Voi",
+      "provided": "avesti avuto",
+      "correct": "aveste avuto",
+      "is_repeat": true
+    },
+    {
+      "verb": "credere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Voi",
+      "provided": "foste credut",
+      "correct": "aveste creduto",
+      "is_repeat": false
+    },
+    {
+      "verb": "essere",
+      "modo": "Remoto",
+      "tiempo": "Passato",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Tu",
+      "provided": "avesti stato",
+      "correct": "fosti stato",
       "is_repeat": false
     },
     {
       "verb": "dormire",
       "modo": "Remoto",
       "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Loro",
-      "provided": "durmono",
-      "correct": "dormirono",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Tu",
+      "provided": "ebbi dormito",
+      "correct": "avesti dormito",
       "is_repeat": false
     },
     {
       "verb": "credere",
       "modo": "Remoto",
       "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Io",
-      "provided": "credei",
-      "correct": "credetti",
+      "nombre": "Trapassato Remoto",
+      "pronombre": "Noi",
+      "provided": "fummo creduto",
+      "correct": "avemmo creduto",
       "is_repeat": false
     }
   ],
   "repeat_queue": [
     {
-      "modo": "Remoto",
+      "modo": "Indicativo",
       "tiempo": "Passato",
-      "nombre": "Remoto",
-      "pronombre": "Loro",
-      "verb": "dormire",
-      "correct": "dormirono",
+      "nombre": "Prossimo",
+      "pronombre": "Voi",
+      "verb": "essere",
+      "correct": "siete stati",
       "genere": "M",
-      "scheduled_at": 41,
+      "scheduled_at": 117,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Voi",
+      "verb": "avere",
+      "correct": "avevate avuto",
+      "genere": "M",
+      "scheduled_at": 151,
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "modo": "Indicativo",
+      "tiempo": "Passato",
+      "nombre": "Trapassato prossimo",
+      "pronombre": "Lui",
+      "verb": "credere",
+      "correct": "aveva creduto",
+      "genere": "M",
+      "scheduled_at": 166,
       "interval": 3,
       "attempts": 1
     },
@@ -422,16 +2496,16 @@
       "modo": "Remoto",
       "tiempo": "Passato",
       "nombre": "Remoto",
-      "pronombre": "Io",
-      "verb": "credere",
-      "correct": "credetti",
+      "pronombre": "Tu",
+      "verb": "mangiare",
+      "correct": "mangiasti",
       "genere": "M",
-      "scheduled_at": 42,
+      "scheduled_at": 208,
       "interval": 3,
       "attempts": 1
     }
   ],
-  "all_done": false,
+  "all_done": true,
   "selected_verbs": [
     "dormire",
     "avere",
@@ -446,10 +2520,8 @@
     "Remoto"
   ],
   "selected_tiempos": [
-    "Futuro",
-    "Passato",
-    "Presente"
+    "Passato"
   ],
-  "selected_nombre": "Remoto",
+  "selected_nombre": "Trapassato Remoto",
   "selected_genere": "Ambos"
 }

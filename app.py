@@ -119,7 +119,7 @@ def new_question() -> None:
     Genera una nueva pregunta según los filtros actuales.
     - Respeta filtros (modo, tempo, nome, genere)
     - Usa cola de repetición si hay
-    - Evita repetir combinaciones ya acertadas
+    - Evita repeticiones inmediatas, pero permite re-practicar combinaciones ya vistas
     """
     df_filtered = df.copy()
 
@@ -140,7 +140,8 @@ def new_question() -> None:
         st.session_state["question"] = None
         return
 
-    # Set de combos ya respondidas correctamente
+    # Set de combos ya respondidas correctamente (se mantiene para registro,
+    # pero ya no se usa para excluir permanentemente preguntas)
     answered = set()
     for c in st.session_state.get("session_corrects", []):
         answered.add(
@@ -154,15 +155,9 @@ def new_question() -> None:
     for i, it in enumerate(queue):
         if it.get("scheduled_at", 0) > now_q:
             continue
+        # No descartamos items de la cola solo porque hayan sido contestados
+        # anteriormente en la sesión; esto permite re-practicar verbos/tiempos.
         key = (it.get("tiempo"), it.get("nombre"), it.get("modo"), it.get("pronombre"), it.get("verb"))
-        if key in answered:
-            # ya se respondió bien, la saco de la cola
-            try:
-                st.session_state["repeat_queue"].pop(i)
-                save_progress()
-            except Exception:
-                pass
-            continue
 
         mask = (
             (df_filtered["Tiempo"] == it["tiempo"])
@@ -219,8 +214,6 @@ def new_question() -> None:
         for verb in random.sample(list(selected_verbs), k=len(selected_verbs)):
             key = (r.get("Tiempo"), r.get("Nombre"), r.get("Modo"), r.get("Pronombre"), verb)
             if key in last_qs:
-                continue
-            if key in answered:
                 continue
             chosen = (r, verb)
             break
@@ -894,9 +887,7 @@ else:
         # Ordenar por accuracy ascendente para resaltar los tiempos con peor rendimiento arriba
         perf = perf.sort_values(by="accuracy", ascending=True)
 
-        # Construir el gráfico tipo dashboard dentro de una tarjeta
-        st.markdown("<div class='mod-card'>", unsafe_allow_html=True)
-        st.markdown("<h4 style='margin-top:0;'>Rendimento per Nome dei verbi</h4>", unsafe_allow_html=True)
+
 
         base = alt.Chart(perf).encode(
             y=alt.Y("Nome:N", sort=alt.EncodingSortField(field="accuracy", op="min", order="ascending"), title=None),

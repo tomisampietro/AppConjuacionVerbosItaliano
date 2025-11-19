@@ -37,9 +37,12 @@ body{
     color:var(--text);
 }
 
-/* Ocultar menú y footer de Streamlit */
-header[data-testid="stHeader"], footer, .stDeployButton{
-    display:none !important;
+/* Ocultar menú y footer de Streamlit en pantallas anchas (mantener visible en móviles
+   para que el botón de menú lateral funcione correctamente). */
+@media (min-width: 700px){
+    header[data-testid="stHeader"], footer, .stDeployButton{
+        display:none !important;
+    }
 }
 
 /* Contenedor principal */
